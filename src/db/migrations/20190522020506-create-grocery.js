@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       purchased: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     purchased: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
       defaultValue: false
     }
   }, {});

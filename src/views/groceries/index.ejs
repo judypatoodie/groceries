@@ -8,12 +8,18 @@
       <% include ../static/partials/navbar.ejs %>
 
       <h1>Grocery List</h1>
-
+        <a href="/groceries/new" class="btn btn-success">New Grocery</a>
       <ul class="list-group">
 
         <% groceries.forEach((grocery) => { %>
           <li class="list-group-item">
-            <a href="/groceries/<%= grocery.id %>"> <%= grocery.title %> </a>
+            <h3><%= grocery.title %></h3>
+            Status: <%= grocery.purchased %>
+            <br>
+            <a href="/groceries/<%= grocery.id %>/edit" class="btn btn-warning">Edit</a>
+            <form style="display:initial" action="/groceries/<%= grocery.id %>/destroy" method="post">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
           </li>
         <% }) %>
       </ul>

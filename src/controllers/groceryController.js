@@ -17,14 +17,14 @@ module.exports = {
   },
   create(req, res, next){
        let newGrocery= {
-         title: newGrocery.title,
-         purchased: newGrocery.purchased
+         title: req.body.title,
+         purchased: req.body.purchased
        };
        groceryQueries.addGrocery(newGrocery, (err, grocery) => {
          if(err){
            res.redirect(500, "/groceries/new");
          } else {
-           res.redirect(303, `/groceries/${grocery.id}`);
+           res.redirect(303, `/groceries`);
          }
        });
      },
@@ -65,7 +65,7 @@ module.exports = {
              if(err || grocery == null){
                res.redirect(404, `/groceries/${req.params.id}/edit`);
              } else {
-               res.redirect(`/groceries/${grocery.id}`);
+               res.redirect(`/groceries`);
              }
            });
          }
