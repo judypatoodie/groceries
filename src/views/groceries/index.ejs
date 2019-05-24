@@ -6,24 +6,37 @@
   <body>
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
-
+<br>
       <h1>Grocery List</h1>
-        <a href="/groceries/new" class="btn btn-success">New Grocery</a>
+      <br>
+          <% if(currentUser) { %>
+            <a href="/groceries/new" class="btn btn-success">
+              <i class="icon ion-md-add"> </i>New Item
+            </a>
+          <% } %>
       <ul class="list-group">
 
         <% groceries.forEach((grocery) => { %>
           <li class="list-group-item">
             <h3><%= grocery.title %></h3>
-            Status: <%= grocery.purchased %>
-            <br>
-            <a href="/groceries/<%= grocery.id %>/edit" class="btn btn-warning">Edit</a>
+              <% if( grocery.purchased ==="Purchased") { %>
+                <span style="color:green; font-weight:bold"><i class="icon ion-md-checkmark"></i> <%= grocery.purchased %></span>
+                <% } else { %>
+                  <span style="color:red; font-weight:bold"><i class="icon ion-md-alert"></i> <%= grocery.purchased %></span>
+                <% }%>
+
+
+            <span class="float-right">
             <form style="display:initial" action="/groceries/<%= grocery.id %>/destroy" method="post">
-              <button type="submit" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-danger"><i class="icon ion-md-close"></i></button>
             </form>
+            <a href="/groceries/<%= grocery.id %>/edit" class="btn btn-warning "><i class="icon ion-md-create"></i></a>
+          </span>
           </li>
         <% }) %>
       </ul>
 
     </main>
+    <% include ../static/partials/baseScripts.ejs %>
   </body>
 </html>

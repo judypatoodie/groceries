@@ -17,9 +17,9 @@
           <input value="<%= grocery.title %>" type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
         </div>
 
-        <select class="form-control" name="purchased">
+        <select class="form-control" name="purchased" >
+            <option value='Not purchased' >Not purchased</option>
             <option value='Purchased'>Purchased</option>
-            <option value='Not purchased'>Not purchased</option>
           </select>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
