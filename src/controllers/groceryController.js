@@ -24,7 +24,7 @@ module.exports = {
          if(err){
            res.redirect(500, "/groceries/new");
          } else {
-           res.redirect(303, `/groceries`);
+           res.redirect(303, `/`);
          }
        });
      },
@@ -45,7 +45,7 @@ module.exports = {
            if(err){
              res.redirect(500, `/groceries/${grocery.id}`)
            } else {
-             res.redirect(303, "/groceries")
+             res.redirect(303, "/")
            }
          });
        },
@@ -65,7 +65,7 @@ module.exports = {
              if(err || grocery == null){
                res.redirect(404, `/groceries/${req.params.id}/edit`);
              } else {
-               res.redirect(`/groceries`);
+               res.redirect(`/`);
              }
            });
          }
