@@ -12,7 +12,14 @@ grocery items from the list as well.
 4. Run `npm start` to start the application
 5. In your browser, navigate to `localhost:3000`to view the live App!
 
-OR you can simple navigate to the deployed app at - [link to deployed appp](https://groceries4u.herokuapp.com/).
+OR you can simple navigate to the deployed app at - [link to deployed app](https://groceries4u.herokuapp.com/).
+
+### Testing
+To run Jasmine TDD tests, do the following:
+1. In your terminal, clone the git repo into a directory of your choice
+2. `cd` into the newly cloned repo
+3. Run `npm install` to install all the node modules
+4. Run `npm test` to run Jasmine tests
 
 ### How to
 **Sign Up for an account**: Click `Sign up` in the navigation pane.
