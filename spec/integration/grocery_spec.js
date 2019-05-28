@@ -10,8 +10,8 @@ describe("routes : groceries", () => {
       sequelize.sync({force: true}).then((res) => {
 
        Grocery.create({
-         title: "JS Frameworks",
-         description: "There is a lot of them"
+         title: "Grocery List",
+         purchased: "Purchased"
        })
         .then((grocery) => {
           this.grocery = grocery;
@@ -26,20 +26,6 @@ describe("routes : groceries", () => {
 
     });
 
-  describe("GET /groceries", () => {
-
-    it("should return a status code 200 and all grocery items", (done) => {
-
-      request.get(base, (err, res, body) => {
-        expect(res.statusCode).toBe(200);
-        expect(err).toBeNull();
-        expect(body).toContain("JS Frameworks");
-        done();
-        });
-      });
-
-
-  });
 
   describe("GET /groceries/new", () => {
 
@@ -53,12 +39,39 @@ describe("routes : groceries", () => {
 
   });
 
+  describe("POST /groceries/create", () => {
+      const options = {
+        url: `${base}create`,
+        form: {
+          title: "apples",
+          purchased: "Purchased"
+        }
+      };
+
+      it("should create a new grocery and redirect", (done) => {
+        request.post(options,
+          (err, res, body) => {
+            Grocery.findOne({where: {title: "apples"}})
+            .then((grocery) => {
+              expect(grocery.title).toBe("apples");
+              expect(grocery.purchased).toBe("Purchased");
+              done();
+            })
+            .catch((err) => {
+              console.log(err);
+              done();
+            });
+          }
+        );
+      });
+    });
+
   describe("GET /groceries/:id", () => {
 
        it("should render a view with the selected grocery item", (done) => {
          request.get(`${base}${this.grocery.id}`, (err, res, body) => {
            expect(err).toBeNull();
-           expect(body).toContain("JS Frameworks");
+           expect(body).toContain("Grocery List");
            done();
          });
        });
@@ -96,7 +109,7 @@ describe("routes : groceries", () => {
       it("should render a view with an edit grocery item form", (done) => {
         request.get(`${base}${this.grocery.id}/edit`, (err, res, body) => {
           expect(err).toBeNull();
-          expect(body).toContain("JS Frameworks");
+          expect(body).toContain("Grocery List");
           done();
         });
       });

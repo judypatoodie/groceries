@@ -1,16 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top top-nav-bar">
+        <div class="container-fluid">
           <a class="navbar-brand" href="#">Groceries</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
+            <ul class="navbar-nav ml-auto float-right">
+              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a class="nav-link" href="/">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
+              <% if(currentUser) { %>
+
+                  <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" href="/users/sign_out">Sign out</a>
+                    </li>
+                    <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                      <span style="color:white; margin-left:10px">
+                        <i class="icon ion-md-person"></i>
+                        <%= currentUser.email %></span>
+                    </li>
+
+                <% } else { %>
+                <li class="nav-item">
+                      <a class="nav-link" href="/users/sign_up">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/users/sign_in">Sign in</a>
+                    </li>
+                  <% }%>
             </ul>
           </div>
         </div>

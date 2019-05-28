@@ -6,7 +6,7 @@ module.exports = {
   index(req, res, next){
     groceryQueries.getAllGroceries((err, groceries) => {
         if(err){
-          res.redirect(500, "static/index");
+          res.redirect(500, "groceries/index");
         } else {
           res.render("groceries/index", {groceries});
         }

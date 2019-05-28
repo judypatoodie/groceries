@@ -1,3 +1,7 @@
 body {
   padding-top: 54px;
 }
+
+@font-face {
+ font-family: 'iconic-sm';
+ src: url('../fonts/iconic-sm.eot');
