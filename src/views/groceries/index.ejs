@@ -13,7 +13,9 @@
             <a href="/groceries/new" class="btn btn-success">
               <i class="icon ion-md-add"> </i>New Item
             </a>
-          <% } %>
+          <% } else { %>
+          <i class="icon ion-md-alert"> You must be signed-in to Add, Edit, and Delete grocery items.</i>  
+            <% }%>
       <ul class="list-group">
 
         <% groceries.forEach((grocery) => { %>
@@ -25,13 +27,14 @@
                   <span style="color:red; font-weight:bold"><i class="icon ion-md-alert"></i> <%= grocery.purchased %></span>
                 <% }%>
 
-
-            <span class="float-right">
-            <form style="display:initial" action="/groceries/<%= grocery.id %>/destroy" method="post">
-              <button type="submit" class="btn btn-danger"><i class="icon ion-md-close"></i></button>
-            </form>
-            <a href="/groceries/<%= grocery.id %>/edit" class="btn btn-warning "><i class="icon ion-md-create"></i></a>
-          </span>
+            <% if(currentUser) { %>
+              <span class="float-right">
+                <form style="display:initial" action="/groceries/<%= grocery.id %>/destroy" method="post">
+                  <button type="submit" class="btn btn-danger"><i class="icon ion-md-close"></i></button>
+                </form>
+                <a href="/groceries/<%= grocery.id %>/edit" class="btn btn-warning "><i class="icon ion-md-create"></i></a>
+              </span>
+           <% } %>
           </li>
         <% }) %>
       </ul>
