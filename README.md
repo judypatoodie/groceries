@@ -13,8 +13,7 @@ Build a grocery application from Node.js, Express, CSS, and HTML that users can 
 4. Run `npm start` to start the application
 5. In your browser, navigate to `localhost:3000`to view the live App!
 
-OR you can simple navigate to the deployed app at - [link to deployed app](https://groceries4u.herokuapp.com/).
-
+OR you can simple navigate to the deployed app at - [link to deployed app](https://groceries4u.herokuapp.com/) and sign in with test credentials: user- `testuser@test.com` and password- `testuser123`
 ### Testing
 To run Jasmine TDD tests, do the following:
 1. In your terminal, clone the git repo into a directory of your choice
