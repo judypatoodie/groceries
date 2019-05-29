@@ -50,4 +50,4 @@ Click `+New Item` to add a new grocery item to the list.
 - Allow lists to be private to a single user.
 - Allow items to be prioritized.
 - Add socket.io to load updates to the grocery list in real-time 
-
+- Update front-end in real-time when edits are made
