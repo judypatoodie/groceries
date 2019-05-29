@@ -1,5 +1,5 @@
 # Groceries Application
-Problem: Presented with the need to manage items collaboratively with other users.
+Problem: Presented with the need to manage grocery items on a grocery list collaboratively with other users.
 
 Solution:
 Build a grocery application from Node.js, Express, CSS, and HTML that users can sign up for an account and sign in. Once authenticated, users can add grocery items to a list that will update on everyones list. Besides creating, users will be able to edit, and delete their grocery items from the list as well.
