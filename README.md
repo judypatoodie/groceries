@@ -1,7 +1,8 @@
 # Groceries Application
+Problem: Presented with the need to manage items collaboratively with other users.
 
-Groceries is an application that users can sign up for an account and sign in. Once authenticated, users can add grocery items to a list that will update in real-time. Besides creating, users will be able to edit, and delete their
-grocery items from the list as well.
+Solution:
+Build a grocery application from Node.js, Express, CSS, and HTML that users can sign up for an account and sign in. Once authenticated, users can add grocery items to a list that will update on everyones list. Besides creating, users will be able to edit, and delete their grocery items from the list as well.
 
 ## Getting Started
 
@@ -42,11 +43,11 @@ Click `+New Item` to add a new grocery item to the list.
 - CSS
 - JavaScript
 
-## Landing Page
 
 ## Future Enhancements
 
 - Allow users to create, load, and switch between multiple lists by date within a group.
 - Allow lists to be private to a single user.
 - Allow items to be prioritized.
+- Add socket.io to load updates to the grocery list in real-time 
 
